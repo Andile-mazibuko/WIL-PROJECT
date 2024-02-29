@@ -1,0 +1,49 @@
+body
+{
+    display: flex;
+    align-items: center;
+}
+
+nav
+{
+    height: 4%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    position: absolute;
+    background-color: rgb(28, 5, 82);
+    display: flex;
+    align-items: center;
+    color: aliceblue;
+}
+nav img
+{
+    position: absolute;
+    left: 2%;
+    width: 2%;
+    height: 50%;
+}
+nav a 
+{
+    position: inherit;
+    left: 4%;
+}
+
+/*
+    ----------------------------------------------------------------------------------------
+    TOP AREA FOR ADS
+*/
+.adverts
+{
+    height: 35%;
+    width: 70%;
+    height: 45%;
+    position: absolute;
+    top: 6%;
+    left: 15%;
+
+}
+.adverts .logo-area
+{
+    
+}
