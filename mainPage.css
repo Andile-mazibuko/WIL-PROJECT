@@ -1,8 +1,40 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&family=Inria+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
+
 body
 {
     display: flex;
     align-items: center;
+    background-color: #FFFAF0;
+    font-family: "Inria Sans", sans-serif;
+    font-weight: 400;
+    font-style: normal;
 }
+h1
+{
+    position: absolute;
+    top: 50%;
+    left: 15%;
+    color: orangered;
+}
+
+a
+{
+    text-decoration: none;
+}
+a:visited
+{
+    color: aliceblue;
+}
+
+
+
+
+
+
+
+
+
 
 nav
 {
@@ -41,9 +73,376 @@ nav a
     position: absolute;
     top: 6%;
     left: 15%;
-
 }
+/*
+    1 - LOGO AREA
+*/
 .adverts .logo-area
 {
+    width: 25%;
+    height: 15%;
+    left: 0;
+    top: 0;
+    position: absolute;
+}
+.logo-area img
+{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/*
+    2 - SEARCH AREA
+*/
+.adverts .search-form
+{
+    position: absolute;
+    width: 48%;
+    height: 11%;
+    left: 25%;
     
+
+}
+.search-form form
+{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: orangered;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+}
+.search-form form input
+{
+    width: 70%;
+    height: 80%;
+    position: absolute;
+    left: 1%;
+    border: none;
+    border-right: 1px solid grey;
+    border-radius: 4px  0px 0px 4px; 
+}
+.search-form form select
+{
+    left: 71%;
+    position: absolute;
+    height: 80%;
+    border: none;
+    width: 20%;
+    border-radius: 0px  4px 4px 0px; 
+}
+.search-form form button
+{
+    position: absolute;
+    left: 91%;
+    width: 8%;
+    height: 80%;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+
+
+
+
+
+/*
+    3- ACCOUNT
+*/
+
+
+
+.adverts .account
+{
+    position: absolute;
+    width: 12%;
+    height: 11%;
+    left: 73.5%;
+    background-color: rgb(36, 159, 166);
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    color: aliceblue;
+}
+.account img
+{
+    height: 50%;
+    width: 20%;
+
+}
+
+
+
+
+/*
+    4 - wishlist
+*/
+
+
+.adverts .wishlist
+{
+    height: 11%;
+    width: 4%;
+    left: 86%;
+    position: absolute;
+    background-color: palevioletred;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+}
+
+
+
+
+
+/*
+    5 - CART
+*/
+
+
+.adverts .cart
+{
+    width: 8.5%;
+    height: 11%;
+    position: absolute;
+    right: 1%;
+    background-color: rgb(28, 5, 82);
+    border-radius: 5px;
+    
+}
+.cart a
+{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: flex;
+    align-items: center;
+    color: aliceblue;
+}
+.cart a img
+{
+    height: 50%;
+    width: 20%;
+    position: absolute;
+    left: 5%;
+}
+.cart a h4
+{
+    position: absolute;
+    left: 30%;
+}
+
+
+
+
+
+
+
+
+
+/*
+        BELOW THE TO SEARCH AREA
+        Shop BY CATEGORY
+*/
+
+
+.shop-by-category
+{
+    height: 85%;
+    width: 24%;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    border-radius: 10px;
+    background-color: #fff;
+    border: 1px solid #DCDCDC;
+}
+
+.shop-by-category a
+{
+    width: 100%;
+    height: 100%;
+    position: inherit;
+    display: flex;
+    align-items: center;
+    
+}
+.shop-by-category .list
+{
+    position: relative;
+    left: 0;
+    margin-top: 1%;
+    height: 10%;
+    width: 100%;
+  
+}
+.list img 
+{
+    height: 50%;
+    margin-left: 5%;
+    position: absolute;
+}
+.list span
+{
+    position: absolute;
+    left: 15%;
+    color: black;
+}
+
+
+
+
+
+
+
+/*
+    ADVERT HADING 
+*/
+
+
+
+
+.adverts-heading
+{
+    width: 74%;
+    height: 11%;
+    position: absolute;
+    right: 1%;
+    top: 14%;
+    background-color: #fff;
+    border: 1px solid #DCDCDC;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: xx-large;
+}
+
+
+
+
+
+
+/*
+    AREA TO DISPLAY ADS
+*/
+
+
+
+.advert-area 
+{
+    height: 72%;
+    width: 74%;
+    position: absolute;
+    right: 1%;
+    bottom: 0;
+    background-color: #fff;
+    border: 1px solid #DCDCDC;
+    border-radius: 10px;
+}
+.ad-container
+{
+    height: 100%;
+    width: 70%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    overflow: hidden;
+    display: flex;
+    justify-content: flex-start;
+    border-radius: 5px 0 0 5px;
+}
+.ad-container img
+{
+    height: 100%;
+    width: 100%;
+    white-space: nowrap;
+    padding: 0 1rem;
+    animation: move-ads 6000ms linear infinite;
+}
+
+
+
+
+
+
+/*
+
+    1-- CONTET AREA
+
+*/
+.content-area
+{
+    width: 70%;
+    height: 150%;
+    left: 15%;
+    position: absolute;
+    top: 58%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    
+    
+}
+.content-area .cont
+{
+    position: relative;
+    width: 30%;
+    height: 30%;
+    margin-top: 1%;
+    margin-left: 1%;
+    display: flex;
+    background-color: #fff;
+    border: 2px solid #DCDCDC;
+    border-radius: 5px;
+    
+}
+
+.cont img
+{
+    width: 98%;
+    position: absolute;
+    left: 1%;
+    top: 1%;
+    height: 48%;
+
+
+}
+.cont .extra-img
+{
+    width: 98%;
+    height: 20%;
+    position: absolute;
+    top: 50%;
+    left: 1%;
+}
+.extra-img img
+{
+    position: relative;
+    width: 32%;
+    height: 100%;
+
+}
+
+
+
+
+@keyframes move-ads 
+{
+    0%
+    {
+        transform: translateX(0);
+    }
+    100%
+    {
+        transform: translateX(-100%);
+    }
 }
