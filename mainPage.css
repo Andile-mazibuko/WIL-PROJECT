@@ -392,6 +392,12 @@ nav a
     
     
 }
+
+
+
+/*
+    MORE ABOUT THE PRODUCT
+*/
 .content-area .cont
 {
     position: relative;
@@ -429,8 +435,63 @@ nav a
     position: relative;
     width: 32%;
     height: 100%;
+    filter: opacity(.5);
+}
+.cont-summary
+{
+    width: 49%;
+    left: 1%;
+    height: 10%;
+    top: 71%;
+    position: absolute;
+    display: flex;
+    align-items: center;
+}
+.cont-summary img
+{
+    height: 50%;
+    width: 20%;
+    position: absolute;
+}
+.cont-summary h4
+{
+    position:absolute;
+    width: 10%;
+    height: 50%;
+}
+.price-area
+{
+    width: 49%;
+    position: absolute;
+    height: 10%;
+    top: 71%;
+    right: 1%;
+    display: flex;
+    align-items: center;
+}
+.cont form
+{
+    position: absolute;
+    bottom: 0;
+    left: 15%;
+    height: 15%;
+    width: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
 }
+.cont form button
+{
+    width: 100%;
+    height: 70%;
+    background-color: rgb(28, 5, 82);
+    border-radius: 50px;
+    border: none;
+    color: aliceblue;
+    cursor: pointer;
+}
+
 
 
 
