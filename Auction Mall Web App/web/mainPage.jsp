@@ -1,5 +1,12 @@
+<%-- 
+    Document   : mainPage
+    Created on : 13 Mar 2024, 5:25:26 PM
+    Author     : andil
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">

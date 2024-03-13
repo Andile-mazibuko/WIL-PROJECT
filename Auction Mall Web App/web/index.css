@@ -1,0 +1,179 @@
+
+body
+{
+    background-image: url("img.jpg");
+    
+}
+.body
+{
+    background-color: rgb(24, 1, 73,.8);
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+}
+.container
+{
+    width: 60%;
+    height: 50%;
+    position: fixed;
+    left: 20%;
+    top: 25%;
+    background-color: #999ede;
+    display: grid;
+    overflow: visible;
+    border-radius: 10px;
+}
+.container .just-text
+{
+    top: 30%;
+    position: absolute;
+    color: aliceblue;
+    
+}
+.log-in-text
+{
+    left: 10%;
+}
+
+.sign-up-text
+{
+    right: 10%;
+}
+
+.t-btn
+{
+    position: absolute;
+    width: 10%;
+    height: 10%;
+    top: 50%;
+
+
+}
+.log-in-btn
+{
+
+    left: 15%;
+
+}
+.sign-up-btn
+{
+    right: 15%;
+}
+
+.form-cont
+{
+    width: 40%;
+    height: 110%;
+    position: absolute;
+    background-color: aliceblue;
+    right:3%;
+    display: flex;
+    align-self: center;
+    border-radius: 20px;
+    animation: moveBack 1s;
+    
+}
+.form-cont .main-form 
+{
+    position: absolute;
+    width: 80%;
+    height: 80%;
+    left: 10%;
+    top: 10%;
+    
+   
+    
+}
+.main-form .sign-up-form
+{
+    visibility: visible;
+}
+
+.signup-inputs
+{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    
+    
+
+}
+.form-cont form input
+{
+    position: relative;
+    height: 10%;
+    width: 80%;
+    left: 10%;
+    border-radius: 60px;
+    border: 1px solid #999ede;
+    margin-top: 2%;
+}
+.form-cont form button
+{
+    position: relative;
+    bottom: -10%;
+    width: 20%;
+    height: 10%;
+    left: 40%;
+}
+
+
+
+/*
+
+        LOGIN PART
+
+*/
+.login-form-cont
+{
+    left: 3%;
+    animation-name: moveContainer;
+    animation-duration: 1s;
+    transition: ease-in-out;
+    
+}
+.main-form .log-in-form
+{
+    
+    background-color: #180148;
+}
+.logInForm
+ {
+    visibility: hidden;
+ }
+
+
+/*
+-----------------------------------------------------------------------------
+ EXTRA CLASSES 
+
+*/
+
+.visible
+{
+    visibility: visible;
+}
+.invisible
+{
+    visibility: hidden;
+}
+
+/*
+-----------------------------------------------------------------------------
+*/
+
+
+@keyframes moveContainer 
+{
+  from {left: 57%;}
+  to {left: 3%;}      
+}
+@keyframes moveBack 
+{
+  to {left: 57%;}
+   from {left: 3%;}      
+}

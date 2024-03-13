@@ -1,4 +1,9 @@
 @import url("mainPage.css");
+body
+{
+    display: flex;
+    justify-content: center;
+}
 .location
 {
     height: 8%;
@@ -117,4 +122,23 @@
     cursor: pointer;
     color: aliceblue;
     border: none;
+}
+.images 
+{
+    position: absolute;
+    width: 80%;
+    height: 100%;
+    left: 10%;
+    top: 98%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;    
+}
+.images img
+{
+    position: relative;
+    height: 20%;
+    width: auto;
+    margin: 2px;
+
 }
