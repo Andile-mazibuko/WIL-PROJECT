@@ -13,6 +13,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinTable;
+import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -34,6 +35,7 @@ public class Product implements Serializable {
     private byte[] description;
     private String status="listed";
     private byte[] mainPic;
+    @OneToMany
     @JoinTable(name = "prod_files")
     private List<ProductMedia> media;
     

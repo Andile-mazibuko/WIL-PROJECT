@@ -7,7 +7,8 @@ package za.co.auc.servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
+import java.nio.charset.StandardCharsets;
+import java.util.Arrays;
 import java.util.List;
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
@@ -56,26 +57,38 @@ public class LogIn extends HttpServlet
     throws ServletException, IOException 
     {
         HttpSession session = request.getSession(true);
+        SysUser user = new SysUser();
         String username = request.getParameter("username");
         byte[] password = request.getParameter("password").getBytes();
-     
-        findUser(username, password, session);
+        
+        user = findUser(username, password);
+        if(user != null)
+        {
+            System.out.println("found");
+            session.setAttribute("user", user);
+            response.sendRedirect("DashBoard.co.za");
+        }else
+        {
+            System.out.println("null");
+        }
+        
+        
         
     }
-    private void findUser(String username,byte[] password, HttpSession session)
+    private SysUser findUser(String username,byte[] password)
     {
         List<SysUser> users = sysUserFacade.findAll();
-
+        SysUser matchingUser = null;
         for(SysUser user : users )
         {
-            if(user.getUsername().equalsIgnoreCase(username) && user.getPassword().equals(password)) 
+            if(user.getUsername().equalsIgnoreCase(username) && Arrays.equals(user.getPassword(), password)) 
             {
-                session.setAttribute("user", user);
-                System.out.println("User exist");
+                matchingUser = user;
+                System.out.println("");
             }
         }
     
-        
+        return matchingUser;
     }
 
 }

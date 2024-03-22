@@ -72,7 +72,7 @@ public class CreateAccount extends HttpServlet {
         user.setCart(new ArrayList<>());
         user.setWishlist(new ArrayList<>());
         user.setOrders(new ArrayList<>());
-        user.setOrders(new ArrayList());
+        user.setUserProducts(new ArrayList<>());
         
         user.setEmail(email);
         user.setLastname(names[1]);
