@@ -62,7 +62,7 @@ public class CreateAccount extends HttpServlet {
         
         createUser(name, username, email, password, session);
         
-        
+        response.sendRedirect("DashBoard.co.za");
         
     }
     private void createUser(String name,String username, String email, byte[] password, HttpSession session)

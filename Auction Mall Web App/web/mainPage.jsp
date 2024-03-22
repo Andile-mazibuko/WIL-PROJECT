@@ -4,6 +4,7 @@
     Author     : andil
 --%>
 
+<%@page import="za.co.auc.entities.SysUser"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -18,7 +19,11 @@
         <img src="shopping-bag.svg" alt="">  <a>sell on Auction Mall</a>
     </nav>
 
+<%
 
+        SysUser user = (SysUser)session.getAttribute("user");
+        
+%>
     <!--
 
         ADVERTS
@@ -39,7 +44,7 @@
         </div>
 
         <div class="account">
-            <img src="user-fill.svg" alt=""> <a href=""><h5>Andile Mazibuko</h5></a>
+            <img src="user-fill.svg" alt=""> <a href=""><h5><%=user.getFirstname()%> <%=user.getLastname()%></h5></a>
         </div>
         
         <div class="wishlist">

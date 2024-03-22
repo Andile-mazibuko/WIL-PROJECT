@@ -26,9 +26,6 @@ public class LogIn extends HttpServlet
 {
 
     @EJB
-    private SysUserFacadeLocal sysUserFacade1;
-
-    @EJB
     private SysUserFacadeLocal sysUserFacade;
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
