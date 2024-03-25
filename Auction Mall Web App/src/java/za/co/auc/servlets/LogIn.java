@@ -7,7 +7,6 @@ package za.co.auc.servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 import java.util.List;
 import javax.ejb.EJB;

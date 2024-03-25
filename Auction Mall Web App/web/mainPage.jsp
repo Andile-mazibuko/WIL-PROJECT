@@ -16,12 +16,23 @@
 </head>
 <body>
     <nav>
-        <img src="shopping-bag.svg" alt="">  <a>sell on Auction Mall</a>
+        
+        <img src="shopping-bag.svg" alt="">  <%
+             SysUser user = (SysUser)session.getAttribute("user");
+            if(user.getUserType().equalsIgnoreCase("premium"))
+            {
+            %>
+                <a href="sellPage.jsp">sell on Auction Mall</a>
+            <%
+                }else{
+            %>
+            <a href="payment.jsp">Go to premium</a>
+            <%}%>
     </nav>
 
 <%
 
-        SysUser user = (SysUser)session.getAttribute("user");
+       
         
 %>
     <!--

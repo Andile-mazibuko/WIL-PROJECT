@@ -1,0 +1,83 @@
+@import url('mainPage.css');
+
+.form-cont
+{
+    width: 70%;
+    height: 80%;
+    position: absolute;
+    background-color: #FFFAF0;
+    border: 1px solid #DCDCDC;
+    box-shadow: 1px 1px 2px 2px #DCDCDC;
+    top: 10%;
+    left: 15%;
+    border-radius: 10px;
+}
+form
+{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 15%;
+    
+
+}
+form input
+{
+    position: relative;
+    width: 30%;
+    height: 5%;
+    margin-left: 35%;
+    margin-top: 1%;
+    border-radius: 10px;
+    border: 1px solid grey;
+    outline: none;
+}
+input[type="file"]
+{
+    display: none;
+    margin-top: 1%;
+    
+}
+
+
+form select
+{
+    position: relative;
+    margin-left: 35%;
+    margin-top: 1%;
+    width: 30%;
+    height: 5%;
+}
+form textarea
+{
+    position: relative;
+    margin-left: 35%;
+    margin-top: 1%;
+}
+form label
+{
+    position: absolute;
+    width: 13%;
+    height: 5%;
+    margin-top: 1%;
+    background-color: orangered;
+    cursor: pointer;
+    border: 1px solid;
+    top: 42%;
+    left: 35%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+form label img
+{
+    height: 50%;
+}
+input[type="submit"]
+{
+    position: absolute;
+    bottom: 45%;
+    background-color: rgb(28, 5, 82);
+    color: #fff;
+    cursor: pointer;
+}

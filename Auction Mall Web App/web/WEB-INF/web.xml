@@ -12,6 +12,10 @@
         <servlet-name>DashBoard</servlet-name>
         <servlet-class>za.co.auc.servlets.DashBoard</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>PremiumServlet</servlet-name>
+        <servlet-class>za.co.auc.servlets.PremiumServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CreateAccount</servlet-name>
         <url-pattern>/CreateAccount.co.za</url-pattern>
@@ -23,6 +27,10 @@
     <servlet-mapping>
         <servlet-name>DashBoard</servlet-name>
         <url-pattern>/DashBoard.co.za</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PremiumServlet</servlet-name>
+        <url-pattern>/PremiumServlet.co.za</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
