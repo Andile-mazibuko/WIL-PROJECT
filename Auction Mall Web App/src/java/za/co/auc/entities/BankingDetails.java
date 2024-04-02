@@ -24,7 +24,7 @@ public class BankingDetails implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     @Column(name = "user_id")
-    private SysUser user;
+    private Long user;
     private String fullName,email,address,city,nameOnCard,posCode,cardNumber,expDate,cvv;
 
     public Long getId() {
@@ -35,11 +35,11 @@ public class BankingDetails implements Serializable {
         this.id = id;
     }
 
-    public SysUser getUser() {
+    public Long getUser() {
         return user;
     }
 
-    public void setUser(SysUser user) {
+    public void setUser(Long user) {
         this.user = user;
     }
 

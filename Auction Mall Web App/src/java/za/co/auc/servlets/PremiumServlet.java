@@ -6,11 +6,15 @@
 package za.co.auc.servlets;
 
 import java.io.IOException;
+import javax.ejb.EJB;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import za.co.auc.entities.BankingDetails;
+import za.co.auc.entities.SysUser;
+import za.co.auc.session.beans.BankingDetailsFacadeLocal;
 
 /**
  *
@@ -18,6 +22,9 @@ import javax.servlet.http.HttpSession;
  */
 public class PremiumServlet extends HttpServlet 
 {
+
+    @EJB
+    private BankingDetailsFacadeLocal bankingDetailsFacade;
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -42,9 +49,28 @@ public class PremiumServlet extends HttpServlet
         String expDate = request.getParameter("exp_date");
         String cvv = request.getParameter("cvv");
         
+        SysUser user = (SysUser)session.getAttribute("user");
+        bankingDetailsFacade.create(createBankDetails(user,fullName, email, address, city, posCode, nameOnCard, cardNumber, expDate, cvv));
         
-        
+        response.sendRedirect("DashBoard.co.za");
     }
 
+    private BankingDetails createBankDetails(SysUser user,String fullname,String email,String address,String city, String posCode,String nameOnCard,String cardNumber,String expDate,String cvv)
+    {
+        BankingDetails bankingDetails = new BankingDetails();
+        bankingDetails.setUser(user.getId());
+        bankingDetails.setFullName(fullname);
+        bankingDetails.setEmail(email);
+        bankingDetails.setAddress(address);
+        bankingDetails.setCity(city);
+        bankingDetails.setAddress(address);
+        bankingDetails.setPosCode(posCode);
+        bankingDetails.setNameOnCard(nameOnCard);
+        bankingDetails.setExpDate(expDate);
+        bankingDetails.setCardNumber(cardNumber);
+        bankingDetails.setCvv(cvv);
+        
+        return bankingDetails;
+    }
 
 }

@@ -13,6 +13,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinTable;
+import javax.persistence.Lob;
 import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -22,18 +23,27 @@ import javax.persistence.TemporalType;
  * @author andil
  */
 @Entity
-public class Product implements Serializable {
+public abstract class Product implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private double price;
+    private double price,minimumbid;
     @Temporal(TemporalType.TIMESTAMP)
     private Date dateListed;
+
+    public double getMinimumbid() {
+        return minimumbid;
+    }
+
+    public void setMinimumbid(double minimumbid) {
+        this.minimumbid = minimumbid;
+    }
     private String buyType;
     private byte[] description;
     private String status="listed";
+    @Lob
     private byte[] mainPic;
     @OneToMany
     @JoinTable(name = "prod_files")

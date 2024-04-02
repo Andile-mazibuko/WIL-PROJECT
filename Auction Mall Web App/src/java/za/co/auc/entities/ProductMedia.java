@@ -10,6 +10,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 
 /**
  *
@@ -22,6 +23,7 @@ public class ProductMedia implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    @Lob
     private byte[] file;
     private String filename;
 
