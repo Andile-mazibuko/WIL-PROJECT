@@ -1,0 +1,144 @@
+@import url("mainPage.css");
+body
+{
+    display: flex;
+    justify-content: center;
+}
+.location
+{
+    height: 8%;
+    width: 90%;
+    background-color:  rgb(28, 5, 82,.3);;
+    position: absolute;
+    top: 4%;
+    left: 5%;
+    border-radius: 0 0 5px 5px;
+    display: flex;
+    justify-content: center;
+}
+.location h2
+{
+    position: absolute;
+    top: -15%;
+    height: 5%;
+    color: orangered;
+}
+.location p
+{
+    position: absolute;
+    bottom: 0;
+}
+.main-area
+{
+    width: 80%;
+    height: 80%;
+    position: absolute;
+    left: 10%;
+    top: 13%;
+    border-radius: 5px;
+    border: 1px solid #DCDCDC;
+    box-shadow: 1px 1px 1px 1px #fff;
+}
+.main-area img
+{
+    height: 55%;
+    width: 60%;
+    border-radius: 5px 0 0 0 ;
+}
+.main-area .agent-area
+{
+    width: 40%;
+    height: 55%;
+    position: absolute;
+    right: 0;
+    top: 0;
+    border-radius: 0 5px 0 0;
+    background-color: rgb(28, 5, 82);
+    display: flex;
+    justify-content: center;
+    color: aliceblue;
+    z-index: 1;
+}
+.agent-area img
+{
+    background-color: rgb(28, 5, 82);
+    height: 60%;
+    width: 40%;
+    position: absolute;
+    top: 60%;
+    border-radius: 50%;
+    border: 7px solid orangered;
+
+    
+}
+.description
+{
+    height:40%;
+    position: absolute;
+    width: 50%;
+    top: 55%;
+    left: 1%;
+}
+.description p
+{
+    position: absolute;
+    top: 10%;
+}
+.description div
+{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 70%;
+}
+.bidding-box
+{
+    position: absolute;
+    width: 40%;
+    height: 70%;
+    right: 0;
+    bottom: 0;
+    background-color: rgb(28, 5, 82,.1);
+    z-index: 4;
+    border-radius: 0 0 5px 0;
+}
+.bidding-box form
+{
+    height: 100%;
+    width: 100%;
+    position: inherit;
+    left: 0;
+    top: 0;
+   
+}
+.bidding-box form button
+{
+    height: 8%;    
+    width: 70%;
+    left: 15%;
+    position: relative;
+    top: 70%;
+    margin-bottom: 1%;
+    cursor: pointer;
+    color: aliceblue;
+    border: none;
+}
+.images 
+{
+    position: absolute;
+    width: 80%;
+    height: 100%;
+    left: 10%;
+    top: 98%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;    
+}
+.images img
+{
+    position: relative;
+    height: 20%;
+    width: auto;
+    margin: 2px;
+
+}

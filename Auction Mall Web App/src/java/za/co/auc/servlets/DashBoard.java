@@ -6,17 +6,24 @@
 package za.co.auc.servlets;
 
 import java.io.IOException;
+import java.util.List;
+import javax.ejb.EJB;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import za.co.auc.entities.Product;
+import za.co.auc.session.beans.ProductFacadeLocal;
 
 /**
  *
  * @author andil
  */
 public class DashBoard extends HttpServlet {
+
+    @EJB
+    private ProductFacadeLocal productFacade;
 
 
 
@@ -25,7 +32,7 @@ public class DashBoard extends HttpServlet {
     throws ServletException, IOException
     {
         HttpSession session = request.getSession();
-        
+        session.setAttribute("products", getAllProducts());
         
         
         request.getRequestDispatcher("mainPage.jsp").forward(request, response);
@@ -39,5 +46,8 @@ public class DashBoard extends HttpServlet {
     {
     
     }
-
+    private List<Product> getAllProducts()
+    {
+        return productFacade.findAll();
+    }
 }

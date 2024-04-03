@@ -20,6 +20,10 @@
         <servlet-name>SellPageServlet</servlet-name>
         <servlet-class>za.co.auc.servlets.SellPageServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>SelectedProduct</servlet-name>
+        <servlet-class>za.co.auc.servlets.SelectedProduct</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CreateAccount</servlet-name>
         <url-pattern>/CreateAccount.co.za</url-pattern>
@@ -39,6 +43,10 @@
     <servlet-mapping>
         <servlet-name>SellPageServlet</servlet-name>
         <url-pattern>/SellPageServlet.co.za</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SelectedProduct</servlet-name>
+        <url-pattern>/SelectedProduct.co.za</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

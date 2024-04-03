@@ -17,13 +17,16 @@ import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
 import za.co.auc.entities.Car;
 import za.co.auc.entities.House;
 import za.co.auc.entities.Product;
 import za.co.auc.entities.ProductMedia;
+import za.co.auc.entities.SysUser;
 import za.co.auc.session.beans.ProductFacadeLocal;
 import za.co.auc.session.beans.ProductMediaFacadeLocal;
+import za.co.auc.session.beans.SysUserFacadeLocal;
 
 /**
  *
@@ -32,6 +35,9 @@ import za.co.auc.session.beans.ProductMediaFacadeLocal;
 @MultipartConfig
 public class SellPageServlet extends HttpServlet
 {
+
+    @EJB
+    private SysUserFacadeLocal sysUserFacade;
 
     @EJB
     private ProductFacadeLocal productFacade;
@@ -51,18 +57,24 @@ public class SellPageServlet extends HttpServlet
                 
                 InputStream input = part.getInputStream();
                 byte[] fileContent = new byte[input.available()];
-                //input.read();
+                input.read(fileContent);
                 ProductMedia media = new ProductMedia();
+                if(part.getSubmittedFileName() != null)
+                {
+                    media.setFile(fileContent);
+                    media.setFilename(part.getSubmittedFileName());
+                    productMedia.add(media);
+                    productMediaFacade.create(media);
+                }
                 
-                media.setFile(fileContent);
-                media.setFilename(part.getSubmittedFileName());
-                
-                productMedia.add(media);
-                productMediaFacade.create(media);
                 
                 
             }
             
+            
+        HttpSession session = request.getSession();
+        SysUser user = (SysUser)session.getAttribute("user");
+        List<Product> userProducts = user.getUserProducts();
         Double maximumPrice = Double.parseDouble(request.getParameter("buynow"));
         Double minimumPrice = Double.parseDouble(request.getParameter("bid_price"));
         String option = request.getParameter("sell_option");
@@ -70,7 +82,7 @@ public class SellPageServlet extends HttpServlet
         Part mainFilePart = request.getPart("main file");
         InputStream in = mainFilePart.getInputStream();
         byte[] main = new byte[in.available()];
-        //in.read();
+        in.read(main);
         
         Product product;
         
@@ -121,7 +133,12 @@ public class SellPageServlet extends HttpServlet
             product = house;
         }
        
+        userProducts.add(product);
+       
         productFacade.create(product);
+        sysUserFacade.edit(user);
+        session.setAttribute("user", user);
+        response.sendRedirect("DashBoard.co.za");
        
     }
     

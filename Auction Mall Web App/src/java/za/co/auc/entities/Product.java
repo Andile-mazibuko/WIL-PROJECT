@@ -32,14 +32,6 @@ public abstract class Product implements Serializable {
     private double price,minimumbid;
     @Temporal(TemporalType.TIMESTAMP)
     private Date dateListed;
-
-    public double getMinimumbid() {
-        return minimumbid;
-    }
-
-    public void setMinimumbid(double minimumbid) {
-        this.minimumbid = minimumbid;
-    }
     private String buyType;
     private byte[] description;
     private String status="listed";
@@ -65,7 +57,14 @@ public abstract class Product implements Serializable {
     public void setPrice(double price) {
         this.price = price;
     }
+    
+    public double getMinimumbid() {
+        return minimumbid;
+    }
 
+    public void setMinimumbid(double minimumbid) {
+        this.minimumbid = minimumbid;
+    }
     public Date getDateListed() {
         return dateListed;
     }

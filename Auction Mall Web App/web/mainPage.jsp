@@ -4,6 +4,12 @@
     Author     : andil
 --%>
 
+<%@page import="java.io.FileOutputStream"%>
+<%@page import="java.io.OutputStream"%>
+<%@page import="java.io.File"%>
+<%@page import="za.co.auc.entities.House"%>
+<%@page import="za.co.auc.entities.Product"%>
+<%@page import="java.util.List"%>
 <%@page import="za.co.auc.entities.SysUser"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -127,55 +133,64 @@
     <h1>DEALS</h1>
     <h1 style="left: 50%; color: aqua;"><a href="">see more</a></h1>
     <div class="content-area">
+       <%
+           
+            List<Product> products = (List<Product>)session.getAttribute("products");
+            
+            
+            
+            for(int i = 0; i < products.size(); i++){
+       
+           File file = new File("D:\\Files\\projects\\Git projects\\WIL PROJECT\\WIL-PROJECT\\Auction Mall Web App\\web\\Dashobard products\\"+products.get(i).getMedia().get(0).getFilename());
+           File file1 = new File("D:\\Files\\projects\\Git projects\\WIL PROJECT\\WIL-PROJECT\\Auction Mall Web App\\web\\Dashobard products\\"+products.get(i).getMedia().get(1).getFilename());
+           File file2 = new File("D:\\Files\\projects\\Git projects\\WIL PROJECT\\WIL-PROJECT\\Auction Mall Web App\\web\\Dashobard products\\"+products.get(i).getMedia().get(2).getFilename());
+           file.createNewFile();
+           OutputStream output = new FileOutputStream(file);
+           OutputStream output1 = new FileOutputStream(file1);
+           OutputStream output2 = new FileOutputStream(file2);
+           output.write(products.get(i).getMainPic());
+           output1.write(products.get(i).getMedia().get(1).getFile());
+           output2.write(products.get(i).getMedia().get(2).getFile());
+           
+           
+           output.flush();
+           output.close();
+           
+           output1.flush();
+           output1.close();
+           
+           output2.flush();
+           output2.close();
+       %>
         <div class="cont">      
-                <img src="p1.png" alt="">
+            <img src="Dashobard products/<%= products.get(i).getMedia().get(0).getFilename() %>" alt="">
                 <div class="extra-img">
-                    <img src="p2.png" alt="">
-                    <img src="p3.png" alt="">
-                    <img src="p4.png" alt="">
+                    <img src="Dashobard products/<%= products.get(i).getMedia().get(1).getFilename() %>" alt="">
+                    <img src="Dashobard products/<%= products.get(i).getMedia().get(2).getFilename() %>" alt="">
+                    <img src="Dashobard products/<%= products.get(i).getMedia().get(0).getFilename() %>" alt="">
                 </div>
                 <div class="cont-summary">
-                    <img src="bed-solid.svg" alt="" style="left: 0; top: 25%;"> <h4 style="left: 21%;"> 3</h4>
-                    <img src="shower-solid.svg" alt="" style="left: 30%; top: 25%;"> <h4 style="left: 50%;"> 2</h4>
-                    <img src="car-solid.svg" alt="" style="left: 55%; top: 25%;"> <h4 style="left: 75%;"> 2</h4>
+                    <%if(products.get(i) instanceof House)
+                    {
+                        House house = (House)products.get(i);
+                        %>
+                    <img src="bed-solid.svg" alt="" style="left: 0; top: 25%;"> <h4 style="left: 21%;"> <%=house.getBedrooms() %></h4>
+                    <img src="shower-solid.svg" alt="" style="left: 30%; top: 25%;"> <h4 style="left: 50%;"> <%=house.getBathrooms() %></h4>
+                    <img src="car-solid.svg" alt="" style="left: 55%; top: 25%;"> <h4 style="left: 75%;"> <%=house.getGarages() %></h4>
+                    <%}%>
                 </div>
                 <div class="price-area">
                     <!--
                         this can also represent the price of rental houses E.G. R4000/M
                     -->
-                        <h4>R950 0000</h4>
+                    <h4>R<%= products.get(i).getPrice() %></h4>
                 </div>
-                <form action="">
-                    <button value="" type="submit">see more</button>
+                <form action="SelectedProduct.co.za" method="post">
+                    <button name="productId" value="<%= products.get(i).getId() %>" type="submit">see more</button>
                 </form>
         </div>
-        <div class="cont">
-            
-        </div>
-        <div class="cont">
-            
-        </div>
-        <div class="cont">
-            
-        </div>
-        <div class="cont">
-            
-        </div>
-        <div class="cont">
-
-        </div>
-        <div class="cont">
-            
-        </div>
-        <div class="cont">
-            
-        </div>
-        <div class="cont">
-            
-        </div>
-        <div class="cont">
-            
-        </div>
+        <%}%>
+       
     </div>
 
 
