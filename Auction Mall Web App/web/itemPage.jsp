@@ -62,11 +62,11 @@
             </div>
         </div>
         <div class="bidding-box">
-            <form action="">
-                <button type="submit" style="background-color: rgb(28, 5, 82);">
+            <form action="PaymentServlet.co.za" method="post">
+                <button name="buy_option" type="submit" value="<%= "bid:"+product.getMinimumbid() + 10000 %>" style="background-color: rgb(28, 5, 82);" onsubmit="confirm()">
                     BID <%=product.getMinimumbid() %> (8h)
                 </button>
-                <button type="submit"  style="background-color: orangered;">
+                <button name="buy_option" type="submit" value="<%= "buy:"+product.getPrice() %>" style="background-color: orangered;" onsubmit="confirm()">
                     Buy Now (R<%=product.getPrice() %>)
 
                 </button>
@@ -91,5 +91,11 @@
         <img src="selected products/<%=pro.getFilename() %>" alt="">
         <%}%>
     </div>
+        <script>
+        function confirm()
+        {
+            confirm("Are you sure");
+        } 
+    </script>
 </body>
 </html>
