@@ -3,6 +3,7 @@
   <persistence-unit name="Auction_Mall_Web_AppPU" transaction-type="JTA">
     <jta-data-source>jdbc/AuctionMall</jta-data-source>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
+    <validation-mode>CALLBACK</validation-mode>
     <properties>
       <property name="javax.persistence.schema-generation.database.action" value="create"/>
     </properties>

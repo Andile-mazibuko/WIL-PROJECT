@@ -28,6 +28,14 @@
         <servlet-name>PaymentServlet</servlet-name>
         <servlet-class>za.co.auc.servlets.PaymentServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ProcessPayment</servlet-name>
+        <servlet-class>za.co.auc.servlets.ProcessPayment</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AddToWishlist</servlet-name>
+        <servlet-class>za.co.auc.servlets.AddToWishlist</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CreateAccount</servlet-name>
         <url-pattern>/CreateAccount.co.za</url-pattern>
@@ -55,6 +63,14 @@
     <servlet-mapping>
         <servlet-name>PaymentServlet</servlet-name>
         <url-pattern>/PaymentServlet.co.za</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ProcessPayment</servlet-name>
+        <url-pattern>/ProcessPayment.co.za</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddToWishlist</servlet-name>
+        <url-pattern>/AddToWishlist.co.za</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

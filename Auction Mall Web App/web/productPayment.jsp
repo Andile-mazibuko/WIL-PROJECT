@@ -17,7 +17,7 @@
         <img src="shopping-bag.svg" alt="">  <a>Payment Page</a>
     </nav>
     <div class="payment-cont">
-        <form action="PaymentServlet.co.za" method="get">
+        <form action="ProcessPayment.co.za" method="get">
 
             <div class="billing">
                 <h3>Billing Address </h3>
@@ -55,7 +55,7 @@
                 <label for="cvv">CVV</label>
                 <input type="numberS" name="cvv" placeholder="000" minlength="3" maxlength="3">
             </div>
-            <button type="submit">Proceed with payment</button>
+            <button onclick="return confirm('you are about to make a payment of R${price}')" type="submit">Proceed with payment</button>
         </form>
     </div>
 </body>

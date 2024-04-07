@@ -16,6 +16,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -38,9 +39,9 @@ public class ProductBids implements Serializable {
     @Column(name = "last_bid")
     private Double lastBid;
     
-    @JoinTable(name = "bidders")
-    @OneToMany(fetch = FetchType.LAZY)
-    private List<SysUser> bidders;
+    
+    @OneToOne
+    private SysUser bidders;
     
     @Temporal(TemporalType.TIMESTAMP)
     private Date date;
@@ -71,11 +72,11 @@ public class ProductBids implements Serializable {
         this.lastBid = lastBid;
     }
 
-    public List<SysUser> getBidders() {
+    public SysUser getBidders() {
         return bidders;
     }
 
-    public void setBidders(List<SysUser> bidders) {
+    public void setBidders(SysUser bidders) {
         this.bidders = bidders;
     }
 

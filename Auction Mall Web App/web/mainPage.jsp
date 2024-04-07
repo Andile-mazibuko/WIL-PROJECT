@@ -4,6 +4,7 @@
     Author     : andil
 --%>
 
+<%@page import="za.co.auc.entities.Car"%>
 <%@page import="java.io.FileOutputStream"%>
 <%@page import="java.io.OutputStream"%>
 <%@page import="java.io.File"%>
@@ -139,18 +140,18 @@
             
             
             
-            for(int i = 0; i < products.size(); i++){
+            for(Product product : products){
        
-           File file = new File("D:\\Files\\projects\\Git projects\\WIL PROJECT\\WIL-PROJECT\\Auction Mall Web App\\web\\Dashobard products\\"+products.get(i).getMedia().get(0).getFilename());
-           File file1 = new File("D:\\Files\\projects\\Git projects\\WIL PROJECT\\WIL-PROJECT\\Auction Mall Web App\\web\\Dashobard products\\"+products.get(i).getMedia().get(1).getFilename());
-           File file2 = new File("D:\\Files\\projects\\Git projects\\WIL PROJECT\\WIL-PROJECT\\Auction Mall Web App\\web\\Dashobard products\\"+products.get(i).getMedia().get(2).getFilename());
+           File file = new File("D:\\Files\\projects\\Git projects\\WIL PROJECT\\WIL-PROJECT\\Auction Mall Web App\\web\\Dashobard products\\"+product.getMedia().get(0).getFilename());
+           File file1 = new File("D:\\Files\\projects\\Git projects\\WIL PROJECT\\WIL-PROJECT\\Auction Mall Web App\\web\\Dashobard products\\"+product.getMedia().get(1).getFilename());
+           File file2 = new File("D:\\Files\\projects\\Git projects\\WIL PROJECT\\WIL-PROJECT\\Auction Mall Web App\\web\\Dashobard products\\"+product.getMedia().get(2).getFilename());
            file.createNewFile();
            OutputStream output = new FileOutputStream(file);
            OutputStream output1 = new FileOutputStream(file1);
            OutputStream output2 = new FileOutputStream(file2);
-           output.write(products.get(i).getMainPic());
-           output1.write(products.get(i).getMedia().get(1).getFile());
-           output2.write(products.get(i).getMedia().get(2).getFile());
+           output.write(product.getMainPic());
+           output1.write(product.getMedia().get(1).getFile());
+           output2.write(product.getMedia().get(2).getFile());
            
            
            output.flush();
@@ -163,30 +164,37 @@
            output2.close();
        %>
         <div class="cont">      
-            <img src="Dashobard products/<%= products.get(i).getMedia().get(0).getFilename() %>" alt="">
+            <img src="Dashobard products/<%= product.getMedia().get(0).getFilename() %>" alt="">
                 <div class="extra-img">
-                    <img src="Dashobard products/<%= products.get(i).getMedia().get(1).getFilename() %>" alt="">
-                    <img src="Dashobard products/<%= products.get(i).getMedia().get(2).getFilename() %>" alt="">
-                    <img src="Dashobard products/<%= products.get(i).getMedia().get(0).getFilename() %>" alt="">
+                    <img src="Dashobard products/<%= product.getMedia().get(1).getFilename() %>" alt="">
+                    <img src="Dashobard products/<%= product.getMedia().get(2).getFilename() %>" alt="">
+                    <img src="Dashobard products/<%= product.getMedia().get(0).getFilename() %>" alt="">
                 </div>
                 <div class="cont-summary">
-                    <%if(products.get(i) instanceof House)
+                    <%if(product instanceof House)
                     {
-                        House house = (House)products.get(i);
+                        House house = (House)product;
                         %>
                     <img src="bed-solid.svg" alt="" style="left: 0; top: 25%;"> <h4 style="left: 21%;"> <%=house.getBedrooms() %></h4>
                     <img src="shower-solid.svg" alt="" style="left: 30%; top: 25%;"> <h4 style="left: 50%;"> <%=house.getBathrooms() %></h4>
                     <img src="car-solid.svg" alt="" style="left: 55%; top: 25%;"> <h4 style="left: 75%;"> <%=house.getGarages() %></h4>
+                    <%}else if(product instanceof Car){
+                    
+                        Car car = (Car)product;
+                    %>
+                        <img src="gauge-high-solid.svg" alt="" style="left: 0; top: 25%;"> <h4 style="left: 21%;"> <%= car.getKilometres()%> km</h4>
+                        <img src="code-fork-solid.svg" alt="" style="left: 55%; top: 25%;"> <h4 style="left: 72%;"> <%= car.getGearType()  %></h4>
+                        <img src="gas-pump-solid.svg" alt="" style="left: 80%; top: 25%;"> <h4 style="left: 98%;"> <%= car.getFuelType()  %></h4>
                     <%}%>
                 </div>
                 <div class="price-area">
                     <!--
                         this can also represent the price of rental houses E.G. R4000/M
                     -->
-                    <h4>R<%= products.get(i).getPrice() %></h4>
+                    <h4 style="margin-left: 50%;">R<%= product.getPrice() %></h4>
                 </div>
                 <form action="SelectedProduct.co.za" method="post">
-                    <button name="productId" value="<%= products.get(i).getId() %>" type="submit">see more</button>
+                    <button name="productId" value="<%= product.getId() %>" type="submit">see more</button>
                 </form>
         </div>
         <%}%>

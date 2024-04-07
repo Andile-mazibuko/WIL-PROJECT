@@ -42,6 +42,9 @@
 
     <div class="main-area">
         <img src="p1.png" alt="">
+        <form action="AddToWishlist.co.za" method="post" style="width: 5%;height: 10%;position: absolute; z-index: 5; top: 5%; left: 2%; display: flex;align-items: center;justify-content: center;">
+            <button onclick="alert('you have successfully added this product to your wishlist')" name="submit" value="<%= product.getId() %>" type="submit" style="width: 70%;height: 60%;background-color: orangered; cursor: pointer; border: none; border-radius: 10px;"><img src="heart.svg" alt=""></button>
+        </form>
         <div class="agent-area">
             <img src="agent.png" alt="">
             <h4>
@@ -63,7 +66,7 @@
         </div>
         <div class="bidding-box">
             <form action="PaymentServlet.co.za" method="post">
-                <button name="buy_option" type="submit" value="<%= "bid:"+product.getMinimumbid() + 10000 %>" style="background-color: rgb(28, 5, 82);" onsubmit="confirm()">
+                <button name="buy_option" type="submit" value="<%= "bid:"+Double.sum(product.getMinimumbid(), 10000) %>" style="background-color: rgb(28, 5, 82);" onsubmit="confirm()">
                     BID <%=product.getMinimumbid() %> (8h)
                 </button>
                 <button name="buy_option" type="submit" value="<%= "buy:"+product.getPrice() %>" style="background-color: orangered;" onsubmit="confirm()">
@@ -92,10 +95,7 @@
         <%}%>
     </div>
         <script>
-        function confirm()
-        {
-            confirm("Are you sure");
-        } 
+
     </script>
 </body>
 </html>
