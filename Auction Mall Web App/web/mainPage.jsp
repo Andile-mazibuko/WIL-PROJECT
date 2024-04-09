@@ -62,11 +62,11 @@
         </div>
 
         <div class="account">
-            <img src="user-fill.svg" alt=""> <a href=""><h5><%=user.getFirstname()%> <%=user.getLastname()%></h5></a>
+            <img src="user-fill.svg" alt=""> <a href="account.jsp"><h5><%=user.getFirstname()%> <%=user.getLastname()%></h5></a>
         </div>
         
         <div class="wishlist">
-            <a href="">
+            <a href="wishlist.jsp">
                 <img src="heart.svg" alt="">
             </a>
         </div>

@@ -7,6 +7,7 @@ package za.co.auc.entities;
 
 import java.io.Serializable;
 import javax.persistence.Entity;
+import javax.persistence.OneToOne;
 
 /**
  *
@@ -17,7 +18,17 @@ public class House extends Product implements Serializable {
 
 
     private Integer bedrooms,garages,bathrooms,noOfRooms;
+    @OneToOne
+    private PropertyLocation locaion;
 
+    public PropertyLocation getLocaion() {
+        return locaion;
+    }
+
+    public void setLocaion(PropertyLocation locaion) {
+        this.locaion = locaion;
+    }
+    
     public Integer getBedrooms() {
         return bedrooms;
     }

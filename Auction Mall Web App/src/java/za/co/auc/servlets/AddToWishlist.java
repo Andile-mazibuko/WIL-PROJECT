@@ -59,7 +59,7 @@ public class AddToWishlist extends HttpServlet
         boolean isAvailable = false;
         for(Product pro : userProducts)
         {
-            if(pro.equals(product))
+            if(pro.getId().equals(product.getId()))
             {
                 isAvailable = true;
             }

@@ -45,7 +45,7 @@ public class SysUser implements Serializable {
     
     @JoinTable(name = "user_orders")
     @OneToMany
-    private List<Product> orders;
+    private List<UserOrder> orders;
     
 
     
@@ -129,11 +129,11 @@ public class SysUser implements Serializable {
         this.cart = cart;
     }
 
-    public List<Product> getOrders() {
+    public List<UserOrder> getOrders() {
         return orders;
     }
 
-    public void setOrders(List<Product> orders) {
+    public void setOrders(List<UserOrder> orders) {
         this.orders = orders;
     }
 

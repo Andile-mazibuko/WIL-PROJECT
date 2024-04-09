@@ -1,0 +1,37 @@
+@import url('mainPage.css');
+.container
+{
+    width: 100%;
+    height: 96%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+}
+.wishlist-card
+{
+    position: relative;
+    width: 50%;
+    height: 10%;
+    border-radius: 10px;
+    background-color: #fff;
+    border: 1px solid #DCDCDC;
+    margin-top: .4%;
+    margin-left: 25%;
+    overflow: hidden;
+}
+.wishlist-card img
+{
+    position: absolute;
+    width: 20%;
+    height: 100%;
+    left: 0;
+    top: 0;   
+}
+.wishlist-content
+{
+    width: 77%;
+    height: 100%;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
