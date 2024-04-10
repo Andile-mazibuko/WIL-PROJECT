@@ -28,14 +28,6 @@ a:visited
 }
 
 
-
-
-
-
-
-
-
-
 nav
 {
     height: 4%;
@@ -59,6 +51,17 @@ nav a
 {
     position: inherit;
     left: 4%;
+}
+
+nav ul
+{
+    position: absolute;
+    right: 5%;
+    display: flex;
+}
+ul li
+{
+    display: flex;
 }
 
 /*
@@ -147,10 +150,6 @@ nav a
 }
 
 
-
-
-
-
 /*
     3- ACCOUNT
 */
@@ -176,9 +175,6 @@ nav a
 
 }
 
-
-
-
 /*
     4 - wishlist
 */
@@ -196,10 +192,6 @@ nav a
     align-items: center;
     border-radius: 5px;
 }
-
-
-
-
 
 /*
     5 - CART
@@ -239,13 +231,6 @@ nav a
     position: absolute;
     left: 30%;
 }
-
-
-
-
-
-
-
 
 
 /*
@@ -298,16 +283,9 @@ nav a
 }
 
 
-
-
-
-
-
 /*
     ADVERT HADING 
 */
-
-
 
 
 .adverts-heading
@@ -325,9 +303,6 @@ nav a
     align-items: center;
     font-size: xx-large;
 }
-
-
-
 
 
 
@@ -369,11 +344,6 @@ nav a
     margin-right: 2px;
     animation-iteration-count: infinite;
 }
-
-
-
-
-
 
 /*
 

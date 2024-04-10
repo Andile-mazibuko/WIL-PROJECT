@@ -30,6 +30,9 @@
             {
             %>
                 <a href="sellPage.jsp">sell on Auction Mall</a>
+                <ul>
+                    <li><a href="userProducts.jsp">Manage products</a></li>
+                </ul>
             <%
                 }else{
             %>

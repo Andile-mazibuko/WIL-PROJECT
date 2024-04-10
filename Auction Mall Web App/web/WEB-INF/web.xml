@@ -36,6 +36,22 @@
         <servlet-name>AddToWishlist</servlet-name>
         <servlet-class>za.co.auc.servlets.AddToWishlist</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>EditInformation</servlet-name>
+        <servlet-class>za.co.auc.servlets.EditInformation</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>EditPassword</servlet-name>
+        <servlet-class>za.co.auc.servlets.EditPassword</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DeleteWishlist</servlet-name>
+        <servlet-class>za.co.auc.servlets.DeleteWishlist</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>EditProduct</servlet-name>
+        <servlet-class>za.co.auc.servlets.EditProduct</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CreateAccount</servlet-name>
         <url-pattern>/CreateAccount.co.za</url-pattern>
@@ -71,6 +87,22 @@
     <servlet-mapping>
         <servlet-name>AddToWishlist</servlet-name>
         <url-pattern>/AddToWishlist.co.za</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EditInformation</servlet-name>
+        <url-pattern>/EditInformation.co.za</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EditPassword</servlet-name>
+        <url-pattern>/EditPassword.co.za</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteWishlist</servlet-name>
+        <url-pattern>/DeleteWishlist.co.za</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EditProduct</servlet-name>
+        <url-pattern>/EditProduct.co.za</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

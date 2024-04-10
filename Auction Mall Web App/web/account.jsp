@@ -4,6 +4,11 @@
     Author     : andil
 --%>
 
+<%@page import="za.co.auc.entities.Car"%>
+<%@page import="za.co.auc.entities.House"%>
+<%@page import="za.co.auc.entities.Product"%>
+<%@page import="java.util.List"%>
+<%@page import="za.co.auc.entities.SysUser"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -13,6 +18,16 @@
     <link rel="stylesheet" href="account.css">
 </head>
 <body>
+    
+    <%
+        SysUser user = (SysUser)session.getAttribute("user");
+        String cellphone = "";
+        if(user.getCellphone() != null)
+        {
+            cellphone = cellphone+user.getCellphone();
+        }
+        
+    %>
     <nav>
         <img src="shopping-bag.svg" alt="">  <a>sell on Auction Mall</a>
     </nav>
@@ -33,18 +48,19 @@
         </div>
         <div class="large-area">
             <div class="sum-cont account-details" id="account-cont">
-                <form action="">
-                    <h4>#AM1111</h4>
-                    <input type="text" name="firstname" value="Andile" placeholder="firstname">
-                    <input type="text" name="lastname" value="Mazibuko">
-                    <input type="email" name="email" value="aas@gmail.com">
-                    <input type="text" name="username" value="andile_mazibuko">
-                    <input type="text" name="cellphone" value="000000000">
+                <form action="EditInformation.co.za" method="post">
+                    <h4>#AC<%=user.getId() %></h4>
+                    <input type="text" name="firstname" value="<%=user.getFirstname() %>" placeholder="firstname">
+                    <input type="text" name="lastname" value="<%=user.getLastname() %>">
+                    <input type="email" name="email" value="<%=user.getEmail() %>">
+                    <input type="text" name="username" value="<%=user.getUsername() %>">
+                    <input type="text" name="cellphone" value="<%=cellphone %>" oninput="validateInput(this)" placeholder="Enter your cellphone number">
                     <input type="submit">
                 </form>
             </div>
             <div class="sum-cont wishlist" id="wishlist-cont">
-               <form action="">
+                
+                <form action="DeleteWishlist.co.za" method="post">
                     <table >
                         <thead>
                             <td class="number">#</td>
@@ -55,21 +71,37 @@
                             <td>remove</td>
 
                         </thead>
+                <%
+                
+                        List<Product> wishlist = user.getWishlist();
+                
+                        int count = 0;
+                        for(Product pro : wishlist){
+                            count++;
+                        String proType;
+                        if(pro instanceof House)
+                        {
+                            proType = "House";
+                        }else
+                        {
+                            proType = ((Car)pro).getModel();
+                        }
+                %>
                         <tr>
-                            <td class="number">1</td>
+                            <td class="number"><%=count%></td>
                             <td><img src="p1.png" alt=""></td>
-                            <td>House for sale</td>
-                            <td>R90 000</td>
-                            <td>R150 000</td>
-                            <td><button type="submit"><img src="trash-can-solid.svg" alt=""></button></td>
+                            <td><<%= proType %></td>
+                            <td>R<%= pro.getMinimumbid() %></td>
+                            <td>R<%= pro.getPrice() %></td>
+                            <td><button name="prodId" value="<%= pro.getId() %>" type="submit"><img src="trash-can-solid.svg" alt=""></button></td>
                         </tr>
-                        
+                <%}%>
                         
                     </table>
                 </form>                
             </div>
             <div class="sum-cont password" id="password-cont">
-                <form action="">
+                <form action="EditPassword.co.za" method="post">
                     <label for="current">Current Password</label>
                     <input type="password" name="current" id="current" placeholder="Enter your current password">
                     <label for="new_pass">New password</label>
@@ -140,6 +172,10 @@
             wishlistCont.classList.remove("visible");
             passwordCont.classList.remove("visible");
         });
+        function validateInput(inputField) {
+            
+            inputField.value = inputField.value.replace(/\D/g, '');
+        }
     </script>
 </body>
 </html>
