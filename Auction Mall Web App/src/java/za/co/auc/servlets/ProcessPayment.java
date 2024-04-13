@@ -6,6 +6,7 @@
 package za.co.auc.servlets;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import javax.ejb.EJB;
@@ -17,14 +18,23 @@ import javax.servlet.http.HttpSession;
 import za.co.auc.entities.Product;
 import za.co.auc.entities.ProductBids;
 import za.co.auc.entities.SysUser;
+import za.co.auc.entities.UserOrder;
 import za.co.auc.session.beans.ProductBidsFacadeLocal;
 import za.co.auc.session.beans.ProductFacadeLocal;
+import za.co.auc.session.beans.SysUserFacadeLocal;
+import za.co.auc.session.beans.UserOrderFacadeLocal;
 
 /**
  *
  * @author andil
  */
 public class ProcessPayment extends HttpServlet {
+
+    @EJB
+    private UserOrderFacadeLocal userOrderFacade;
+
+    @EJB
+    private SysUserFacadeLocal sysUserFacade;
  
     @EJB
     private ProductBidsFacadeLocal productBidsFacade;
@@ -35,9 +45,9 @@ public class ProcessPayment extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-       HttpSession session = request.getSession();
+       
+        HttpSession session = request.getSession();
         Product selectedProduct = (Product)session.getAttribute("selectedProduct");
-        
         String fullName = request.getParameter("full_name");
         String email = request.getParameter("email");
         String address = request.getParameter("address");
@@ -48,6 +58,18 @@ public class ProcessPayment extends HttpServlet {
         String cardNumber = request.getParameter("card_number");
         String expDate = request.getParameter("exp_date");
         String cvv = request.getParameter("cvv");
+                
+        SysUser user = (SysUser)session.getAttribute("user");;
+        List<Product>userProducts = new ArrayList<>();
+        userProducts.add(selectedProduct);
+        UserOrder order = new UserOrder();
+        order.setDate(new Date());
+        order.setStatus("Payment Recieved");
+        order.setProducts(userProducts);
+        userOrderFacade.create(order);
+        List<UserOrder> orders = user.getOrders();
+        orders.add(order);
+        sysUserFacade.edit(user);
         
         String buyOption = (String) session.getAttribute("buyOption");
         double price = (Double)session.getAttribute("price");

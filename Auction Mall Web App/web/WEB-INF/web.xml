@@ -52,6 +52,10 @@
         <servlet-name>EditProduct</servlet-name>
         <servlet-class>za.co.auc.servlets.EditProduct</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>EditProductDetails</servlet-name>
+        <servlet-class>za.co.auc.servlets.EditProductDetails</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CreateAccount</servlet-name>
         <url-pattern>/CreateAccount.co.za</url-pattern>
@@ -103,6 +107,10 @@
     <servlet-mapping>
         <servlet-name>EditProduct</servlet-name>
         <url-pattern>/EditProduct.co.za</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EditProductDetails</servlet-name>
+        <url-pattern>/EditProductDetails.co.za</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

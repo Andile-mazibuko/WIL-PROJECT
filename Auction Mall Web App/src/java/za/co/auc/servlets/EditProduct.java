@@ -7,10 +7,14 @@ package za.co.auc.servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.ejb.EJB;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import za.co.auc.entities.Product;
+import za.co.auc.session.beans.ProductFacadeLocal;
 
 /**
  *
@@ -18,6 +22,8 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class EditProduct extends HttpServlet {
 
+    @EJB
+    private ProductFacadeLocal productFacade;
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -45,8 +51,18 @@ public class EditProduct extends HttpServlet {
     }
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        processRequest(request, response);
+    throws ServletException, IOException 
+    {
+        //processRequest(request, response);
+        HttpSession session = request.getSession();
+        try
+        {
+            session.setAttribute("toEdit", productFacade.find(Long.parseLong(request.getParameter("productId"))));
+        }catch(NullPointerException ex)
+        {
+            System.out.println("Product not found");
+        }
+        request.getRequestDispatcher("editProduct.jsp").forward(request, response);
     }
 
 

@@ -4,6 +4,7 @@
     Author     : andil
 --%>
 
+<%@page import="za.co.auc.entities.UserOrder"%>
 <%@page import="za.co.auc.entities.Car"%>
 <%@page import="za.co.auc.entities.House"%>
 <%@page import="za.co.auc.entities.Product"%>
@@ -123,18 +124,20 @@
                             <td>Date</td>
                             <td>status</td>
                         </thead>
+                        <%
+                            List<UserOrder>userOrders = user.getOrders();
+                            int num = 0;
+                            for(UserOrder order : userOrders)
+                            {
+                                num++;
+                        %>
                         <tr>
-                            <td class="number">1</td>
-                            <td><button type="submit" value="">AUC114</button></td>
-                            <td>Tue,28 Feb 23 10:55:20:GMT</td>
-                            <td>Payment recieved</td>
+                            <td class="number"><%= num%></td>
+                            <td><button type="submit" value="">AUC<%=order.getId() %></button></td>
+                            <td><%= order.getDate().toString() %></td>
+                            <td><%=order.getStatus() %></td>
                         </tr>
-                        <tr>
-                            <td class="number">1</td>
-                            <td><button type="submit" value="">AUC114</button></td>
-                            <td>Tue,28 Feb 23 10:55:20:GMT</td>
-                            <td>Payment recieved</td>
-                        </tr>
+                        <%}%>
                     </table>
                 </form>
             </div>

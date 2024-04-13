@@ -41,7 +41,7 @@ public class DeleteWishlist extends HttpServlet
         
         List<Product>userWishlist = user.getWishlist();
         userWishlist.remove(productFacade.find(prodId));
-        user.setWishlist(userWishlist);
+        //user.setWishlist(userWishlist);
         sysUserFacade.edit(user);
         response.sendRedirect("DashBoard.co.za");
         

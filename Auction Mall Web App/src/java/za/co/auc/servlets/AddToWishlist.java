@@ -42,6 +42,7 @@ public class AddToWishlist extends HttpServlet
             if(!isProductAvailale(user.getWishlist(), product))
             {
                 user.getWishlist().add(product);
+                user = (SysUser)session.getAttribute("user");
                 sysUserFacade.edit(user);
             }else
             {

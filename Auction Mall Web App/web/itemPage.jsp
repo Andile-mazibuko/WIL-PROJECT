@@ -4,6 +4,9 @@
     Author     : andil
 --%>
 
+<%@page import="za.co.auc.entities.Car"%>
+<%@page import="za.co.auc.entities.House"%>
+<%@page import="za.co.auc.entities.PropertyLocation"%>
 <%@page import="java.io.FileOutputStream"%>
 <%@page import="java.io.File"%>
 <%@page import="java.io.OutputStream"%>
@@ -28,7 +31,28 @@
         Product product = (Product)session.getAttribute("selectedProduct");
         String description = new String(product.getDescription(),StandardCharsets.UTF_8);
         List<ProductMedia> media = product.getMedia();
-    
+        String location = "Not specified";
+        
+        if(product instanceof House)
+        {
+            PropertyLocation prodLoc = ((House)product).getLocaion();
+            if(prodLoc != null)
+            {
+                
+                location = "South Africa > "+prodLoc.getProvince()+" > "+ prodLoc.getTown()+" > "+ prodLoc.getStreet() ;
+            }
+            
+        }else if(product instanceof Car)
+        {
+            location = ((Car)product).getModel();
+        }
+         
+                File main = new File("D:\\Files\\projects\\Git projects\\WIL PROJECT\\WIL-PROJECT\\Auction Mall Web App\\web\\selected products\\"+media.get(0).getFilename());
+                main.createNewFile();
+                OutputStream output = new FileOutputStream(main);
+                output.write(media.get(0).getFile());
+                output.flush();
+                output.close();
 
         
     %>
@@ -37,11 +61,11 @@
     </nav>
     <div class="location">
         <h2> Propery for sale</h2>
-        <p>South africa > KwaZulu Natal > Ulundi > J. Adams str </p>
+        <p><%= location %> </p>
     </div>
 
     <div class="main-area">
-        <img src="p1.png" alt="">
+        <img src="Dashobard products/<%=media.get(0).getFilename() %>" alt="">
         <form action="AddToWishlist.co.za" method="post" style="width: 5%;height: 10%;position: absolute; z-index: 5; top: 5%; left: 2%; display: flex;align-items: center;justify-content: center;">
             <button onclick="alert('you have successfully added this product to your wishlist')" name="submit" value="<%= product.getId() %>" type="submit" style="width: 70%;height: 60%;background-color: orangered; cursor: pointer; border: none; border-radius: 10px;"><img src="heart.svg" alt=""></button>
         </form>
@@ -85,10 +109,10 @@
             {
                 File file = new File("D:\\Files\\projects\\Git projects\\WIL PROJECT\\WIL-PROJECT\\Auction Mall Web App\\web\\selected products\\"+pro.getFilename());
                 file.createNewFile();
-                OutputStream output = new FileOutputStream(file);
-                output.write(pro.getFile());
-                output.flush();
-                output.close();
+                OutputStream output1 = new FileOutputStream(file);
+                output1.write(pro.getFile());
+                output1.flush();
+                output1.close();
 
         %>
         <img src="selected products/<%=pro.getFilename() %>" alt="">
