@@ -8,6 +8,7 @@ package za.co.auc.entities;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -32,19 +33,19 @@ public class SysUser implements Serializable {
     private byte[] profilePicture;
     
     @JoinTable(name = "user_products")
-    @OneToMany
+    @OneToMany(fetch = FetchType.EAGER)
     private List<Product> userProducts;
     
     @JoinTable(name = "user_wishlist")
-    @OneToMany
+    @OneToMany(fetch = FetchType.EAGER)
     private List<Product> wishlist;
     
     @JoinTable(name = "user_cart")
-    @OneToMany
+    @OneToMany(fetch = FetchType.EAGER)
     private List<Product> cart;
     
     @JoinTable(name = "user_orders")
-    @OneToMany
+    @OneToMany(fetch = FetchType.EAGER)
     private List<UserOrder> orders;
     
 

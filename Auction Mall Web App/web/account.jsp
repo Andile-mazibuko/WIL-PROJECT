@@ -4,6 +4,8 @@
     Author     : andil
 --%>
 
+<%@page import="java.io.FileOutputStream"%>
+<%@page import="java.io.File"%>
 <%@page import="za.co.auc.entities.UserOrder"%>
 <%@page import="za.co.auc.entities.Car"%>
 <%@page import="za.co.auc.entities.House"%>
@@ -30,7 +32,7 @@
         
     %>
     <nav>
-        <img src="shopping-bag.svg" alt="">  <a>sell on Auction Mall</a>
+        <img src="shopping-bag.svg" alt="">  <a href="DashBoard.co.za">Home</a>
     </nav>
     <div class="account-summary">
         <div class="side-info">
@@ -78,7 +80,19 @@
                 
                         int count = 0;
                         for(Product pro : wishlist){
+                        
+                            File file = new File("D:\\Files\\projects\\Git projects\\WIL PROJECT\\WIL-PROJECT\\Auction Mall Web App\\web\\account\\"+pro.getMedia().get(0).getFilename());
+                            file.createNewFile();
+                            if(!file.exists())
+                            {
+                                file.createNewFile();
+                            }
+                            
+                            FileOutputStream output = new FileOutputStream(file);
+                            output.flush();
+                            output.close();
                             count++;
+                        
                         String proType;
                         if(pro instanceof House)
                         {
@@ -90,7 +104,7 @@
                 %>
                         <tr>
                             <td class="number"><%=count%></td>
-                            <td><img src="p1.png" alt=""></td>
+                            <td><img src="Dashobard products/<%=pro.getMedia().get(0).getFilename()%>" alt=""></td>
                             <td><<%= proType %></td>
                             <td>R<%= pro.getMinimumbid() %></td>
                             <td>R<%= pro.getPrice() %></td>

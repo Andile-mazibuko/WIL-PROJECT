@@ -4,6 +4,7 @@
     Author     : andil
 --%>
 
+<%@page import="za.co.auc.entities.SysUser"%>
 <%@page import="za.co.auc.entities.Car"%>
 <%@page import="za.co.auc.entities.House"%>
 <%@page import="za.co.auc.entities.PropertyLocation"%>
@@ -29,6 +30,18 @@
     <%
     
         Product product = (Product)session.getAttribute("selectedProduct");
+        SysUser owner = (SysUser)session.getAttribute("productOwner");
+        String cellphone = "Not available";
+        
+        if(owner.getCellphone() != null)
+        {
+            cellphone = owner.getCellphone()+"";
+        }
+        
+        
+        
+        
+        
         String description = new String(product.getDescription(),StandardCharsets.UTF_8);
         List<ProductMedia> media = product.getMedia();
         String location = "Not specified";
@@ -48,7 +61,7 @@
         }
          
                 File main = new File("D:\\Files\\projects\\Git projects\\WIL PROJECT\\WIL-PROJECT\\Auction Mall Web App\\web\\selected products\\"+media.get(0).getFilename());
-                main.createNewFile();
+                //main.createNewFile();
                 OutputStream output = new FileOutputStream(main);
                 output.write(media.get(0).getFile());
                 output.flush();
@@ -57,7 +70,7 @@
         
     %>
     <nav>
-        <img src="shopping-bag.svg" alt="">  <a>sell on Auction Mall</a>
+        <img src="shopping-bag.svg" alt="">  <a href="DashBoard.co.za">Home</a>
     </nav>
     <div class="location">
         <h2> Propery for sale</h2>
@@ -72,12 +85,12 @@
         <div class="agent-area">
             <img src="agent.png" alt="">
             <h4>
-                <i>work: </i> 
-               <b>063 5970 787</b><br>
+                <i>email: </i> 
+               <b><%= "    "+owner.getEmail() %></b><br>
                <i>cell: </i> 
-               <b>063 5970 787</b><br><br>
+               <b><%= "    0"+cellphone %></b><br><br>
                <br><br>
-                Andile Mazibuko(agent)
+                <%= owner.getFirstname() +" "+ owner.getLastname() %>(agent)
             </h4>
         </div>
         <div class="description">

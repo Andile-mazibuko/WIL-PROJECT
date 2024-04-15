@@ -39,12 +39,23 @@ public class DeleteWishlist extends HttpServlet
         Long prodId = Long.parseLong(request.getParameter("prodId"));
         SysUser user = (SysUser)session.getAttribute("user");
         
-        List<Product>userWishlist = user.getWishlist();
-        userWishlist.remove(productFacade.find(prodId));
-        //user.setWishlist(userWishlist);
+        removeItem(user, prodId);
         sysUserFacade.edit(user);
-        response.sendRedirect("DashBoard.co.za");
+        request.getRequestDispatcher("account.jsp").forward(request, response);
         
+    }
+    private void removeItem(SysUser user, Long proId)
+    {
+          List<Product>userWishlist = user.getWishlist();
+          for(Product pro : userWishlist)
+          {
+              if(pro.getId().equals(proId))
+              {
+                  userWishlist.remove(pro);
+                  break;
+              }
+          }
+          user.setWishlist(userWishlist);
     }
 
 }

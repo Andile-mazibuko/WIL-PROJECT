@@ -35,7 +35,7 @@
         <%
             SysUser user = (SysUser)session.getAttribute("user");
             List<Product> products = user.getUserProducts();
-            String name = "Unspecified location";
+            String name = "";
             
             for(Product product : products){
                 ProductMedia media = product.getMedia().get(0);
@@ -52,6 +52,9 @@
                     if(prodLoc != null)
                     {
                       name = "South Africa > "+prodLoc.getProvince()+" > "+ prodLoc.getTown()+" > "+ prodLoc.getStreet() ;
+                    }else
+                    {
+                        name = "Unspecified location";
                     }
                 }else if(product instanceof Car)
                 {

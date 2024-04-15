@@ -9,6 +9,7 @@ import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -36,7 +37,7 @@ public class ProductBids implements Serializable {
     private Double lastBid;
     
     
-    @OneToOne
+    @OneToOne(fetch = FetchType.EAGER)
     private SysUser bidders;
     
     @Temporal(TemporalType.TIMESTAMP)

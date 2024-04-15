@@ -148,7 +148,10 @@
            File file = new File("D:\\Files\\projects\\Git projects\\WIL PROJECT\\WIL-PROJECT\\Auction Mall Web App\\web\\Dashobard products\\"+product.getMedia().get(0).getFilename());
            File file1 = new File("D:\\Files\\projects\\Git projects\\WIL PROJECT\\WIL-PROJECT\\Auction Mall Web App\\web\\Dashobard products\\"+product.getMedia().get(1).getFilename());
            File file2 = new File("D:\\Files\\projects\\Git projects\\WIL PROJECT\\WIL-PROJECT\\Auction Mall Web App\\web\\Dashobard products\\"+product.getMedia().get(2).getFilename());
-           file.createNewFile();
+           if(!file.exists())
+           {
+               file.createNewFile();
+           }
            OutputStream output = new FileOutputStream(file);
            OutputStream output1 = new FileOutputStream(file1);
            OutputStream output2 = new FileOutputStream(file2);

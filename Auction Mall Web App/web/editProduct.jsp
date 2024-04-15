@@ -47,26 +47,26 @@
             <%
             
             if(product instanceof House){
-                
+                House house = (House)product;
                 PropertyLocation loc = ((House)product).getLocaion();
             %>
             <label for="province">Province</label>
-            <input type="text" value="<%=loc.getProvince() %>" name="province" id="province" placeholder="Enter the province of your property">
+            <input type="text" value="" name="province" id="province" placeholder="Enter the province of your property">
 
             <label for="city">City</label>
-            <input type="text" value="<%=loc.getTown()%>" name="city" id="city" placeholder="Enter the city of your property">
+            <input type="text" value="" name="city" id="city" placeholder="Enter the city of your property">
 
             <label for="street">Street</label>
-            <input type="text" value="<%=loc.getStreet() %>" name="street" id="street" placeholder="Enter the street address of your property">
+            <input type="text" value="" name="street" id="street" placeholder="Enter the street address of your property">
 
             <label for="bedrooms">Bedrooms no:</label>
-            <input type="number" name="bedrooms" id="bedrooms" placeholder="Enter the number of bedrooms">
+            <input type="number" value="<%= house.getBedrooms() %>" name="bedrooms" id="bedrooms" placeholder="Enter the number of bedrooms">
 
             <label for="rooms">Rooms No</label>
-            <input type="number" name="rooms" id="rooms" placeholder="Enter the total number of rooms">
+            <input type="number" value="<%= house.getBathrooms() %>" name="rooms" id="rooms" placeholder="Enter the total number of rooms">
 
             <label for="garages">Garages</label>
-            <input type="number" name="garages" id="garages" placeholder="enter the number of garages ">
+            <input type="number" value="<%= house.getGarages() %>" name="garages" id="garages" placeholder="enter the number of garages ">
             <%}
             else if(product instanceof Car)
             {
