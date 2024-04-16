@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+    <nav>
+        <a>Admin Page</a>
+    </nav>
+    <div class="admin_main">
+        <div class="left">
+            <form action="">
+                <button style="border-top: 2px solid gainsboro;">
+                    <img src="user.svg" alt="">approve agents <div class="num">9</div>
+                </button>
+                <button>
+                    <img src="mail.svg" alt="">Houses</button>
+                <button>
+                    <img src="gauge-high-solid.svg" alt=""> Vehicles
+                </button>
+                <button>
+                    <img src="chart-line-solid.svg" alt="">    Analyse
+                </button>
+                <button type="submit">
+                   <img src="gears-solid.svg" alt=""> Manage
+                </button>
+            </form>
+        </div>
+        <div class="right">
+            <div class="summary num_users">
+                <h1>83</h1>
+                <p>Number of registered users </p>
+                <img src="gears-solid.svg" alt="">
+            </div>
+            <div class="summary num_products">
+                <h1>83</h1>
+                <p>Number of products </p>
+                <img src="gears-solid.svg" alt="">
+            </div>
+            <div class="summary visits">
+                <h1>83</h1>
+                <p>Number of vists </p>
+                <img src="gears-solid.svg" alt="">
+            </div>
+
+            <form action="" method="" style="margin-top: 20%;">
+                <table id="agents">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>name</th>
+                            <th>surname</th>
+                            <th>email</th>
+                            <th>password</th>
+                            <th>action</th>
+                        </tr>
+                    </thead>
+                    <tr>
+                        <td>1</td>
+                        <td>Andile</td>
+                        <td>Mazibuko</td>
+                        <td>andilelethumusa@gmail.com</td>
+                        <td>jkadsjsakljklu 32 738r2p4270389 2uskjx wuqpo</td>
+                        <td><button type="submit" name="toApprove" value="">approve</button></td>
+                    </tr>
+                </table>
+                
+            </form>
+            <form action="">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>description</th>
+                            <th>min price</th>
+                            <th>max price</th>
+                            <th>action</th>
+                        </tr>
+                    </thead>
+                    <tr>
+                        <td>1</td>
+                        <td>kzn>ulundi>king senza st.</td>
+                        <td>R100000</td>
+                        <td>R150000</td>
+                        <td><button type="submit" name="selectedProduct" value="">see more</button></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

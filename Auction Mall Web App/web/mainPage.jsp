@@ -75,9 +75,9 @@
         </div>
         
         <div class="cart">
-            <a href="">
-                <img src="shopping-cart.svg" alt="">
-                <h4>cart 0</h4>
+            <a href="Logout.co.za">
+                <img src="right-from-bracket-solid.svg" alt="">
+                <h4>logout</h4>
             </a>
         </div>
         <!--
@@ -135,7 +135,7 @@
             CONTENT AREA
     -->
     <h1>DEALS</h1>
-    <h1 style="left: 50%; color: aqua;"><a href="">see more</a></h1>
+    <h1 style="left: 78%;"><a href="" style="color: orangered; text-decoration: underline;font-size: x-large;">see more</a></h1>
     <div class="content-area">
        <%
            

@@ -15,6 +15,7 @@ import javax.servlet.http.HttpSession;
 import za.co.auc.entities.BankingDetails;
 import za.co.auc.entities.SysUser;
 import za.co.auc.session.beans.BankingDetailsFacadeLocal;
+import za.co.auc.session.beans.SysUserFacadeLocal;
 
 /**
  *
@@ -22,6 +23,9 @@ import za.co.auc.session.beans.BankingDetailsFacadeLocal;
  */
 public class PremiumServlet extends HttpServlet 
 {
+
+    @EJB
+    private SysUserFacadeLocal sysUserFacade;
 
     @EJB
     private BankingDetailsFacadeLocal bankingDetailsFacade;
@@ -50,6 +54,8 @@ public class PremiumServlet extends HttpServlet
         String cvv = request.getParameter("cvv");
         
         SysUser user = (SysUser)session.getAttribute("user");
+        user.setUserType("pending");
+        sysUserFacade.edit(user);
         bankingDetailsFacade.create(createBankDetails(user,fullName, email, address, city, posCode, nameOnCard, cardNumber, expDate, cvv));
         
         response.sendRedirect("DashBoard.co.za");

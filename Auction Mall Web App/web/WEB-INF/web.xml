@@ -56,6 +56,18 @@
         <servlet-name>EditProductDetails</servlet-name>
         <servlet-class>za.co.auc.servlets.EditProductDetails</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AdminServlet</servlet-name>
+        <servlet-class>za.co.auc.servlets.AdminServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ApproveAgent</servlet-name>
+        <servlet-class>za.co.auc.servlets.ApproveAgent</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Logout</servlet-name>
+        <servlet-class>za.co.auc.servlets.Logout</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CreateAccount</servlet-name>
         <url-pattern>/CreateAccount.co.za</url-pattern>
@@ -111,6 +123,18 @@
     <servlet-mapping>
         <servlet-name>EditProductDetails</servlet-name>
         <url-pattern>/EditProductDetails.co.za</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AdminServlet</servlet-name>
+        <url-pattern>/AdminServlet.co.za</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ApproveAgent</servlet-name>
+        <url-pattern>/ApproveAgent.co.za</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Logout</servlet-name>
+        <url-pattern>/Logout.co.za</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
