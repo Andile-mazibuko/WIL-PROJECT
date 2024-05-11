@@ -152,6 +152,16 @@
         <servlet-name>EndSale</servlet-name>
         <url-pattern>/EndSale.co.za</url-pattern>
     </servlet-mapping>
+    <error-page>
+        <error-code>500</error-code>
+        <location>/internalServerError.html</location>
+    </error-page>
+    <error-page>
+        <error-code>404</error-code>
+        <location>/pageNotFound.html</location>
+    </error-page>
+    
+    
     <session-config>
         <session-timeout>
             30

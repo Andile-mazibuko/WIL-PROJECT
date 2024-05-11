@@ -28,7 +28,7 @@
     
     %>
     <nav>
-        <img src="shopping-bag.svg" alt="">  <a>sell on Auction Mall</a>
+        <img src="shopping-bag.svg" alt="">  <a href="DashBoard.co.za">Home</a>
     </nav>
     <div class="container">
         <%
