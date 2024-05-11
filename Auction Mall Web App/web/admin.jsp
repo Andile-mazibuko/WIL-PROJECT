@@ -27,7 +27,7 @@
     <%
         List<Product> products = (List<Product>) session.getAttribute("products");
         List<SysUser> pendingUsers = (List<SysUser>)session.getAttribute("pending");
-    
+        List<SysUser> allUsers = (List<SysUser>)session.getAttribute("allUsers");
     %>
     <div class="admin_main">
         <div class="left">
@@ -50,19 +50,19 @@
         </div>
         <div class="right">
             <div class="summary num_users">
-                <h1>83</h1>
-                <p>Number of registered users </p>
+                <h1><%=allUsers.size()%></h1>
+                <p>Community Size </p>
                 <img src="gears-solid.svg" alt="">
             </div>
             <div class="summary num_products">
-                <h1>83</h1>
-                <p>Number of products </p>
+                <h1><%=products.size() %></h1>
+                <p>Available Products </p>
                 <img src="gears-solid.svg" alt="">
             </div>
             <div class="summary visits">
-                <h1>83</h1>
-                <p>Number of vists </p>
-                <img src="gears-solid.svg" alt="">
+                <h1>R${amountGenerated}</h1>
+                <p>Revenue Tracker </p>
+                <img src="chart-line-solid.svg" alt="">
             </div>
 
             <form action="ApproveAgent.co.za" method="post" style="margin-top: 20%;">
@@ -75,7 +75,7 @@
                             <th>email</th>
                             <th>password</th>
                             <th>action</th>
-                        </tr>
+                        </tr> 
                     </thead>
                     <%
                         int count = 0;
@@ -130,6 +130,39 @@
                     </tr>
                     <%}%>
                 </table>
+            </form>
+                <form action="DeleteUser.co.za" method="post" >
+                <table id="agents">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>name</th>
+                            <th>surname</th>
+                            <th>email</th>
+                            <th>password</th>
+                            <th>subcription</th>
+                            <th>No. of products</th>
+                            <th>action</th>
+                        </tr>
+                    </thead>
+                    <%
+                        int j = 0;
+                        for(SysUser user : allUsers){
+                            j++;
+                    %>
+                    <tr>
+                        <td><%= j %></td>
+                        <td><%= user.getFirstname() %></td>
+                        <td><%= user.getLastname() %></td>
+                        <td><%= user.getEmail() %></td>
+                        <td><%= user.getPassword().toString() %></td>
+                        <td><%= user.getUserType() %></td>
+                        <td><%=user.getUserProducts().size() %></td>
+                        <td><button type="submit" name="toDelete" value="<%=user.getId()%>">Remove</button></td>
+                    </tr>
+                    <%}%>
+                </table>
+                
             </form>
         </div>
     </div>

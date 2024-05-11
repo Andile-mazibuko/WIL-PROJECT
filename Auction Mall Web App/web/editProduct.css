@@ -67,3 +67,24 @@
     border-radius: 20px;
 
 }
+.end-sale
+{
+    position: absolute;
+    bottom: 5%;
+    left: 5%;
+    width: 30%;
+    height: 6%;
+}
+.end-sale form
+{
+    height: 100%;
+    width: 100%;
+}
+.end-sale form button
+{
+    width: 100%;
+    height: 100%;
+    background-color: orangered;
+    border: none;
+    border-radius: 20px;
+}

@@ -68,6 +68,14 @@
         <servlet-name>Logout</servlet-name>
         <servlet-class>za.co.auc.servlets.Logout</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>DeleteUser</servlet-name>
+        <servlet-class>za.co.auc.servlets.DeleteUser</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>EndSale</servlet-name>
+        <servlet-class>za.co.auc.servlets.EndSale</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CreateAccount</servlet-name>
         <url-pattern>/CreateAccount.co.za</url-pattern>
@@ -135,6 +143,14 @@
     <servlet-mapping>
         <servlet-name>Logout</servlet-name>
         <url-pattern>/Logout.co.za</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteUser</servlet-name>
+        <url-pattern>/DeleteUser.co.za</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EndSale</servlet-name>
+        <url-pattern>/EndSale.co.za</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

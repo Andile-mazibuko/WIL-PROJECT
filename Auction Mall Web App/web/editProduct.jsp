@@ -80,6 +80,11 @@
             <input type="submit" value="Edit" onsubmit="alert('You have successfully updated this item')">
             
         </form>
+        <div class="end-sale">
+            <form action="EndSale.co.za" method="post">
+                <button name="prodId" value="<%=product.getId()%>" type="submit">End sale</button>
+            </form>
+        </div>
     </div>
 </body>
 </html>

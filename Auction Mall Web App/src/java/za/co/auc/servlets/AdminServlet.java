@@ -14,9 +14,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import za.co.auc.entities.Product;
 import za.co.auc.entities.SysUser;
+import za.co.auc.entities.UserOrder;
 import za.co.auc.session.beans.ProductFacadeLocal;
 import za.co.auc.session.beans.SysUserFacadeLocal;
+import za.co.auc.session.beans.UserOrderFacadeLocal;
 
 /**
  *
@@ -24,6 +27,9 @@ import za.co.auc.session.beans.SysUserFacadeLocal;
  */
 public class AdminServlet extends HttpServlet 
 {
+
+    @EJB
+    private UserOrderFacadeLocal userOrderFacade;
 
     @EJB
     private ProductFacadeLocal productFacade;
@@ -39,7 +45,9 @@ public class AdminServlet extends HttpServlet
         HttpSession session = request.getSession();
         session.setAttribute("pending", findAllPendiAgents());
         session.setAttribute("products", productFacade.findAll());
-        
+        session.setAttribute("allUsers", sysUserFacade.findAll());
+        session.setAttribute("orders", userOrderFacade.findAll());
+        session.setAttribute("amountGenerated", getAmountMadeWithOrdes());
         request.getRequestDispatcher("admin.jsp").forward(request, response);
     }
     private List<SysUser> findAllPendiAgents()
@@ -58,6 +66,21 @@ public class AdminServlet extends HttpServlet
         
         return users;
     }
-    
+    private Double getAmountMadeWithOrdes()
+    {
+        double amount = 0.0;
+        List<UserOrder> orders = userOrderFacade.findAll();
+        for(UserOrder order : orders)
+        {
+            //
+            for(Product product : order.getProducts())
+            {
+                //TODO:for presentaion purposes still needs to be fixed
+                amount+=product.getPrice();
+            }
+        }
+        
+        return amount;
+    }
 
 }

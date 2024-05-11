@@ -12,6 +12,7 @@ body
     position: absolute;
     overflow: hidden;
     border-radius: 10px;
+    background-color: #FFFAF0;
     box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.2);
     border: 1px solid gainsboro;
     overflow: hidden;
@@ -28,7 +29,7 @@ body
     bottom: 0;
     height: 100%;
     width: 15%;
-    background-color: #FFFAF0;
+    background-color: rgb(196, 193, 193);
 }
 .admin_main .left form
 {
@@ -37,6 +38,7 @@ body
     position: absolute;
     top: 10%;
     left: 0;
+    border: none;
 }
 .admin_main .left form::-webkit-scrollbar
 {

@@ -103,13 +103,26 @@
         </div>
         <div class="bidding-box">
             <form action="PaymentServlet.co.za" method="post">
-                <button name="buy_option" type="submit" value="<%= "bid:"+Double.sum(product.getMinimumbid(), 10000) %>" style="background-color: rgb(28, 5, 82);" onsubmit="confirm()">
-                    BID <%=product.getMinimumbid() %> (8h)
-                </button>
-                <button name="buy_option" type="submit" value="<%= "buy:"+product.getPrice() %>" style="background-color: orangered;" onsubmit="confirm()">
-                    Buy Now (R<%=product.getPrice() %>)
+                  <%
+                        if(product.getStatus().equalsIgnoreCase("bought") || product.getStatus().equalsIgnoreCase("sold") )
+                        {
+                    %>
+                        <button name="buy_option" type="submit" value="<%= "bid:"+Double.sum(product.getMinimumbid(), 10000) %>" style="background-color: rgb(28, 5, 82);pointer-events: none;" onsubmit="confirm()">
+                              SOLD
+                        </button>
+                        <button name="buy_option" type="submit" value="<%= "buy:"+product.getPrice() %>" style="background-color: orangered;pointer-events: none;" onsubmit="confirm()">
+                             SOLD
+                        </button>
+                    
+                      <%}else{%>
+                        <button name="buy_option" type="submit" value="<%= "bid:"+Double.sum(product.getMinimumbid(), 10000) %>" style="background-color: rgb(28, 5, 82);" onsubmit="confirm()">
+                              BID <%=product.getMinimumbid() %> (8h)
+                        </button>
+                        <button name="buy_option" type="submit" value="<%= "buy:"+product.getPrice() %>" style="background-color: orangered;" onsubmit="confirm()">
+                             Buy Now (R<%=product.getPrice() %>)
 
-                </button>
+                        </button>
+                      <%}%>
             </form>
         </div>
     </div>
