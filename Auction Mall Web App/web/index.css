@@ -165,7 +165,16 @@ body
 /*
 -----------------------------------------------------------------------------
 */
+a
+{
+    width: 80%;
+    left: 10%;
+    position: absolute;
+    bottom: 40%;
+    display: flex;
+    justify-content: center;
 
+}
 
 @keyframes moveContainer 
 {

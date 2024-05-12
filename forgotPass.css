@@ -1,0 +1,56 @@
+@import url("wishlist.css");
+div
+{
+    width: 50%;
+    height: 70%;
+    position: absolute;
+    top: 15%;
+    left: 25%;
+    border-radius: 10px;
+    border: 2px solid #DCDCDC;
+    box-shadow: 1px 1px 1px 1px #fff;
+}
+form
+{
+    width: 60%;
+    height: 70%;
+    top: 15%;
+    position: absolute;
+    left: 20%;
+}
+form label
+{
+    position: relative;
+    margin-left: 15%;
+    display: flex;
+    align-items: center;
+}
+form input
+{
+    position: relative;
+    width: 70%;
+    height: 8%;
+    margin-left: 15%;
+    margin-top: 1%;
+}
+button
+{
+    position: relative;
+    margin-left: 35%;
+    width: 30%;
+    height: 8%;
+    margin-top: 5%;
+    background-color: green;
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+}
+img
+{
+    margin-top: 1%;
+}
+a
+{
+    color: white;
+}

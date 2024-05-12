@@ -7,8 +7,8 @@
         {
             "type": "msedge",
             "request": "launch",
-            "name": "Open wishlist.html",
-            "file": "d:\\Files\\projects\\Git projects\\WIL PROJECT\\WIL-PROJECT\\wishlist.html"
+            "name": "Open index.html",
+            "file": "d:\\Files\\projects\\Git projects\\WIL PROJECT\\WIL-PROJECT\\index.html"
         }
     ]
 }

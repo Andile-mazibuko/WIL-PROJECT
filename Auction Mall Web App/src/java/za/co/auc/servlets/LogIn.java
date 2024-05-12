@@ -39,6 +39,9 @@ public class LogIn extends HttpServlet
             out.println("<title>Servlet LogIn</title>");            
             out.println("</head>");
             out.println("<body>");
+            out.println("<script> alert('Incorrect user credentials'); "
+                    + "setTimeout(window.location.replace('index.html'),3000);"
+                    + "</script>");
             out.println("<h1>Servlet LogIn at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
@@ -77,6 +80,7 @@ public class LogIn extends HttpServlet
             response.sendRedirect("DashBoard.co.za");
         }else
         {
+            processRequest(request, response);
             System.out.println("null");
         }
         

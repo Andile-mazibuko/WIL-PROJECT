@@ -95,7 +95,7 @@
         </div>
         <div class="description">
             <h4>R<%=product.getPrice() %></h4><br>
-            <p>(3) bedrooms (2) bathrooms  (2) garages</p>
+            <p> Listed: <%=product.getDateListed().toString() %></p>
             <div>
                 <h4>About this property</h4>
                  <%= description%>
